@@ -1,0 +1,127 @@
+/* Set border-box for all elements */
+*{
+	box-sizing: border-box; 
+}
+/**** Layout ****/
+body {
+	background-color: #efefef; /* Light grey */
+	}
+article {
+	width: 100%;
+	}
+header{
+	background-color: #5d237d; /* Dark purple */
+	width: 100%;
+	}
+aside.resources {
+	background-color: #E0CCFF; /* Light purple */
+	border-radius: 0.2em; /* Slightly rounded corners*/
+	margin: 0 auto; /* Center aside */
+	padding: 1em 0.2em 2em 0.2em;
+	width: 90%;
+	}
+/**** Text and list styles ****/
+article h1 {
+	color: #ffffff; /* White*/
+	font-family: 'Lora', serif;
+	font-size: 3em;
+	line-height: 4;
+	margin-block-start: 0; 
+    margin-block-end: 0.5em;
+	text-align: center;	
+	}
+aside.resources h2 {
+	color: #333333; /* Dark grey */
+	font-family: 'Lora', serif;
+	margin: 1em 1em 0.5em 1em;
+	}
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	line-height: 1.5;
+	margin: 1em 1.5em;
+	padding: 0 1.5em 0 1.5em;
+	width: 90%;
+	}
+
+aside.resources p {
+	width: 100%;
+	margin-left: 0;
+	}
+span.glossary-term{
+	color: #5d237d; /* Dark purple */
+	font-weight:700;
+	}
+	
+ul.link-list {
+	font-family: 'Open Sans', sans-serif;
+	list-style-type: none;
+	padding: 0 1em 0 1em;
+	}
+/* Before each link in the list link-list add a link symbol*/
+ul.link-list a:before{ 
+	font-size: 0.8em;
+	content: '\01F517';
+	text-decoration: none;
+	display: inline-block;
+	margin: 0 0.4em 0 0.5em;
+	}
+ul.link-list li{
+	margin-bottom: 0.5em;
+	}
+/**** When screen size width is 55 em wide or more, apply the following. ****/
+@media screen and (min-width: 55em){ 
+	article h1{
+		font-size: 4em; /* Increase size of article heading*/
+		margin-block-end: 0.25em; /* Change margin after article heading */
+	}
+	article p {
+		-webkit-column-columns: 22em 2; /* Chrome, Safari, Opera */
+ 		-moz-column-columns: 22em 2; /* Firefox */
+		columns: 20em 2; /* Make article paragraph 2 columns */
+	}
+	/* Add content after paragraphs in article that do not have the class resources */
+	article p:not(.resources)::after{
+		color: #5d237d;
+		content: '\2605 \A Responsive design – where content is like water.'; /* Add star symbol, space and text */
+		font-weight: 700;
+		display: block; /* Display like a block, on a new line */
+		margin-top: 1em;
+		}
+	aside.resources p{
+		-webkit-column-count: 1; /* Chrome, Safari, Opera */
+ 		-moz-column-count: 1; /* Firefox */
+		column-count: 1; /* Make aside paragraph one column */
+		}
+}
+/**** When screen size width is 60 em wide or more, apply the following. ****/
+@media screen and (min-width: 60em){ 
+	article h1{
+		font-size: 6em; /* Increase size of article heading*/
+		margin-block-end: 0.25em; /* Change margin after article heading */
+	}
+	article p {
+		float: left; /* Move article paragraph to the left */
+		margin-left: 1.3em;
+		width: 45%;
+	}
+	/* Add content after paragraphs in article that do not have the class resources */
+	article p:not(.resources)::after{
+		color: #5d237d;
+		content: '\2605 \A This page uses media queries to adapt to different screen sizes.'; /* Add star symbol, space and text */
+		font-weight: 700;
+		display: block; /* Display like a block, on a new line */
+		margin-top: 1em;
+		}
+	aside.resources {
+		float:right; /* Move aside to the right */ 
+		margin-right: 2em;
+		width: 45%;
+	}
+	aside.resources p{
+		float: none; /* Don't apply float to paragraphs inside the  aside named resources. */
+		margin-left: 0;
+		width: 100%; 
+	}
+	
+}
